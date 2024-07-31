@@ -4,6 +4,12 @@
 
 html,
 body {
+    --border-radius: 100px;
+    --blue: #1c47ff;
+    --pink: #d6a3fB;
+    --green: #d0ff94;
+    --grey: #e5e5e5;
+
     margin: 0;
     padding: 0;
     background: #000000;
@@ -28,9 +34,24 @@ a {
 }
 
 section {
+    position: relative;
     display: flex;
     width: 100%;
+    height: calc(100vh - 100px);
+    top: 100px;
+    z-index: 2;
+}
+
+section.sticky {
+    position: sticky;
+    margin-top: 100px;
+}
+
+section.full-screen {
     height: 100vh;
+    top: 0;
+    margin-top: 0;
+    z-index: 3;
 }
 
 /* Navigation */
@@ -41,6 +62,7 @@ nav {
     top: 0;
     left: 0;
     font-size: 20px;
+    z-index: 1;
 }
 
 nav ul {
@@ -65,8 +87,8 @@ nav ul a {
 /* About section */
 section.about .empty {
     flex-basis: 37.5vw;
-    background: #e5e5e5;
-    border-radius: 100px;
+    background: var(--grey);
+    border-radius: var(--border-radius);
 }
 
 section.about article {
@@ -79,8 +101,8 @@ section.about article .title {
     flex: 2;
     display: flex;
     align-items: flex-end;
-    background: #1c47ff;
-    border-radius: 100px;
+    background: var(--blue);
+    border-radius: var(--border-radius);
     padding: 6.27vw;
 }
 
@@ -88,8 +110,8 @@ section.about article .description {
     flex: 1;
     display: flex;
     align-items: center;
-    background: #d6a3fB;
-    border-radius: 100px;
+    background: var(--pink);
+    border-radius: var(--border-radius);
     padding: 6.25vw;
     color: #000000;
 }
@@ -106,8 +128,8 @@ section.services figure {
     justify-content: center;
     flex-basis: 56.25vw;
     margin: 0;
-    background: #d8ff94;
-    border-radius: 100px;
+    background: var(--green);
+    border-radius: var(--border-radius);
 }
 
 section.services figure img {
@@ -122,7 +144,7 @@ section.services .text {
     /* flex-basis: 43.75vw; */
     background: #1f1a1c;
     padding: 6.25vw;
-    border-radius: 100px;
+    border-radius: var(--border-radius);
 }
 
 section.services .text a {
@@ -132,30 +154,30 @@ section.services .text a {
 /* Services Section Overides */
 
 section.services.services-html figure {
-    background: #d8ff94;
+    background: var(--green);
 }
 
 section.services.services-html .text h2,
 section.services.services-html .text a {
-    color:#d6a3fb;
+    color: var(--pink);
 }
 
 section.services.services-css figure {
-    background: #1c47ff;
+    background: var(--blue);
 }
 
 section.services.services-css .text h2,
 section.services.services-css .text a {
-    color:#d0ff94;
+    color: var(--green);
 }
 
 section.services.services-js figure {
-    background: #d6a3fb;
+    background: var(--pink);
 }
 
 section.services.services-js .text h2,
 section.services.services-js .text a {
-    color:#1c47ff;
+    color: var(--blue);
 }
 
 /* Contact Section */
@@ -163,11 +185,11 @@ section.services.services-js .text a {
 section.contact {
     align-items: center;
     justify-content: center;
-    background: linear-gradient(blue,red, yellow);
-    border-radius: 100px;
+    background: linear-gradient(blue, red, yellow);
+    border-radius: var(--border-radius);
 }
 
-section.contact a{
+section.contact a {
     font-size: 100px;
     color: black;
 }
