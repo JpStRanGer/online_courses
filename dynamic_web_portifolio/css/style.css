@@ -1,5 +1,173 @@
+* {
+    box-sizing: border-box;
+}
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    color: #fff;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 60px;
+    margin: 0px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
 
 section {
-    background: red;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 45px;
+}
+
+nav ul a {
+    color: white;
+    font-family: monospace;
+}
+
+/* About section */
+section.about .empty {
+    flex-basis: 37.5vw;
+    background: #e5e5e5;
+    border-radius: 100px;
+}
+
+section.about article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+section.about article .title {
+    flex: 2;
+    display: flex;
+    align-items: flex-end;
+    background: #1c47ff;
+    border-radius: 100px;
+    padding: 6.27vw;
+}
+
+section.about article .description {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #d6a3fB;
+    border-radius: 100px;
+    padding: 6.25vw;
+    color: #000000;
+}
+
+/* Service Section */
+section.services article {
+    display: flex;
+    width: 100%;
+}
+
+section.services figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 56.25vw;
+    margin: 0;
+    background: #d8ff94;
+    border-radius: 100px;
+}
+
+section.services figure img {
+    width: 50%;
+}
+
+section.services .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    /* flex-basis: 43.75vw; */
+    background: #1f1a1c;
+    padding: 6.25vw;
+    border-radius: 100px;
+}
+
+section.services .text a {
+    font-family: monospace;
+}
+
+/* Services Section Overides */
+
+section.services.services-html figure {
+    background: #d8ff94;
+}
+
+section.services.services-html .text h2,
+section.services.services-html .text a {
+    color:#d6a3fb;
+}
+
+section.services.services-css figure {
+    background: #1c47ff;
+}
+
+section.services.services-css .text h2,
+section.services.services-css .text a {
+    color:#d0ff94;
+}
+
+section.services.services-js figure {
+    background: #d6a3fb;
+}
+
+section.services.services-js .text h2,
+section.services.services-js .text a {
+    color:#1c47ff;
+}
+
+/* Contact Section */
+
+section.contact {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(blue,red, yellow);
+    border-radius: 100px;
+}
+
+section.contact a{
+    font-size: 100px;
+    color: black;
 }

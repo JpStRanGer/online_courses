@@ -10,19 +10,21 @@
 
 <body>
 
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="about">
-        <div>empty block</div>
+    <section id="about" class="about">
+        <div class="empty"></div>
         <article>
-            <div>
+            <div class="title">
                 <h1>Creative Developer</h1>
             </div>
-            <div>
+            <div class="description">
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam illo ex tenetur, aliquam voluptate
                     aperiam
@@ -38,12 +40,12 @@
     </section>
     </article>
 
-    <section id="services">
+    <section id="services" class="services services-html">
         <article>
             <figure>
                 <img src="img/dimaond.png" alt="alttext.." width="200">
             </figure>
-            <div>
+            <div class="text">
                 <h2>HTML</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla temporibus voluptatem debitis
@@ -68,12 +70,12 @@
         </article>
     </section>
 
-    <section id="">
+    <section class="services services-css">
         <article>
             <figure>
                 <img src="img/triangle.png" alt="alttext.." width="200">
             </figure>
-            <div>
+            <div class="text">
                 <h2>CSS</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla temporibus voluptatem debitis
@@ -98,12 +100,12 @@
         </article>
     </section>
 
-    <section>
+    <section class="services services-js">
         <article>
             <figure>
                 <img src="img/octogon.png" alt="alttext.." width="200">
             </figure>
-            <div>
+            <div class="text">
                 <h2>JS</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla temporibus voluptatem debitis
@@ -128,7 +130,7 @@
         </article>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact">
         <a href="mailto:jonas.st.pettersen@gmail.com">Send me a mail</a>
     </section>
 </body>
