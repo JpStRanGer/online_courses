@@ -109,6 +109,7 @@ section.about .empty {
     flex-basis: 37.5vw;
     background: var(--grey);
     border-radius: var(--border-radius);
+    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
 }
 
 section.about article {
@@ -118,12 +119,13 @@ section.about article {
 }
 
 section.about article .title {
-    flex: 2;
+    flex: 1;
     display: flex;
     align-items: flex-end;
     background: var(--blue);
     border-radius: var(--border-radius);
     padding: var(--gutter);
+    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
 }
 
 section.about article .description {
@@ -150,6 +152,9 @@ section.services figure {
     margin: 0;
     background: var(--green);
     border-radius: var(--border-radius);
+    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
+    max-width: 62.5vw;
+    min-width: 20vw;
 }
 
 section.services figure img {

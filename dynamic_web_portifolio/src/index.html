@@ -94,6 +94,25 @@
     <section id="contact" class="contact full-screen">
         <a href="mailto:jonas.st.pettersen@gmail.com">Send me a mail</a>
     </section>
+
+    <script>
+        let emptyElement = document.querySelector(".about .empty");
+        let titleElement = document.querySelector(".about .title");
+
+        let figureElements = document.querySelectorAll(".services figure");
+
+        document.addEventListener('mousemove', handleMouseMove);
+
+        function handleMouseMove(event){
+            emptyElement.style.flexBasis = event.clientX +'px';
+            titleElement.style.flexBasis = (window.innerHeight - event.clientY) / 2 +'px';
+
+            figureElements.forEach(function(element){
+                element.style.flexBasis = window.innerWidth - event.clientX + 'px';
+            });
+        }
+    </script>
+
 </body>
 
 </html>
