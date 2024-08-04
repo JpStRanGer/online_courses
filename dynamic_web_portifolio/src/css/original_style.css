@@ -11,7 +11,7 @@ body {
     --grey: #e5e5e5;
 
     --gutter: 3.125vw 6.25vw;
-    
+
     --font-press-start: "Press Start 2P", system-ui;
     --font-syne: "Syne", sans-serif;
     --font-syne-mono-regular: "Syne Mono", monospace;
@@ -109,7 +109,7 @@ section.about .empty {
     flex-basis: 37.5vw;
     background: var(--grey);
     border-radius: var(--border-radius);
-    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
+    transition: flex-basis 3s cubic-bezier(0, .9, .4, .8);
 }
 
 section.about article {
@@ -125,7 +125,7 @@ section.about article .title {
     background: var(--blue);
     border-radius: var(--border-radius);
     padding: var(--gutter);
-    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
+    transition: flex-basis 3s cubic-bezier(0, .9, .4, .8);
 }
 
 section.about article .description {
@@ -152,7 +152,7 @@ section.services figure {
     margin: 0;
     background: var(--green);
     border-radius: var(--border-radius);
-    transition: flex-basis 3s cubic-bezier(0,.9,.4,.8);
+    transition: flex-basis 3s cubic-bezier(0, .9, .4, .8);
     max-width: 62.5vw;
     min-width: 20vw;
 }
@@ -199,6 +199,15 @@ section.services.services-html figure img {
 
 /* Services Section Overides */
 
+section.services.services-inspiration figure {
+    background: var(--blue);
+}
+
+section.services.services-inspiration .text h2,
+section.services.services-inspiration .text a {
+    color: var(--green);
+}
+
 section.services.services-html figure {
     background: var(--green);
 }
@@ -233,7 +242,8 @@ section.contact {
     justify-content: center;
     background: linear-gradient(var(--blue), var(--green), var(--pink), var(--grey));
     border-radius: var(--border-radius);
-    mix-blend-mode: difference; /* mixes all the colors in the whole object */
+    mix-blend-mode: difference;
+    /* mixes all the colors in the whole object */
 }
 
 section.contact a {
@@ -243,7 +253,8 @@ section.contact a {
     transition: color 2s, filter 2s;
     /* transition: color 2s; */
     /* transition: filter 2s; */
-    will-change: filter, color; /* This optimese the browser to use more resorces on given propertie */
+    will-change: filter, color;
+    /* This optimese the browser to use more resorces on given propertie */
 }
 
 section.contact a:hover {
