@@ -10,7 +10,7 @@ const sketch = () => {
        const margin = 1 / 4;
 
        // Off-white background
-       context.fillStyle = 'hsl(0, 0%, 98%)';
+       context.fillStyle = 'hsl(0, 50%, 98%)';
        context.fillRect(0, 0, width, height);
    
        // Gradient foreground
