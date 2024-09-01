@@ -6,8 +6,15 @@ const math = require('canvas-sketch-util/math');
 const random = require('canvas-sketch-util/random')
 
 const settings = {
-  dimensions: [ 1000, 1000 ]
+  dimensions: [ 1000, 1000 ],
+  animate:true
 };
+
+const animate = () => {
+  console.log('Domestica animation');
+  requestAnimationFrame(animate);  
+}
+// animate();
 
 const sketch = ({context, width, height}) => {
   const agents = [];
@@ -24,11 +31,24 @@ const sketch = ({context, width, height}) => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
+    for (let i = 0; i < agents.length; i++){
+      const agent = agents[i];
+
+      for (let j = 0; j < agents.length; j++){
+        const other = agents[j];
+        
+      }
+    }
+
     // loop throug all agents and draw them
     agents.forEach(element => {
+      element.update();
       element.draw(context);
+      element.bounce(width,height);
     });
   };
 };
+
+
 
 canvasSketch(sketch, settings);
