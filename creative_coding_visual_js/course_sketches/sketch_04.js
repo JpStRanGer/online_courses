@@ -1,11 +1,14 @@
 const canvasSketch = require('canvas-sketch');
+const random = require('canvas-sketch-util/random');
+const math = require('canvas-sketch-util/math');
 
 const settings = {
-  dimensions: [ 2048, 2048 ]
+  dimensions: [ 2048, 2048 ],
+  animate: true
 };
 
 const sketch = () => {
-  return ({ context, width, height }) => {
+  return ({ context, width, height, frame}) => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
     
@@ -22,19 +25,22 @@ const sketch = () => {
 
     for (let i = 0; i < numOfCells; i++){
       const col = i % cols;
-      // const row = i / rows;
       const row = Math.floor(i / cols);
-      console.log("" + numOfCells + " col: " + col + " row: " + row);
 
       const x = col * cellwidth + marginX + cellwidth/2;
       const y = row * cellHeight + marginY + cellHeight/2;
 
+      const noise = random.noise2D(x + frame, y, 0.001);
+      const angle = noise * Math.PI *0.5;
+      const scale = noise * math.mapRange(noise,-1,1,1,30);
+
       context.save();
       context.translate(x, y);
-      context.rotate(3.14/5)
-      context.lineWidth = 15;
+      context.rotate(angle);
+      context.lineWidth = scale;
       context.moveTo(100 * -0.5, 0);
       context.lineTo(100 * 0.5, 0);
+      // context.scale(0.1,10);
       context.stroke();
       context.restore();
 

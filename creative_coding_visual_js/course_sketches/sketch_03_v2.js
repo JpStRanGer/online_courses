@@ -10,16 +10,18 @@ const settings = {
   animate:true
 };
 
+// NOT IN USE - only for showing how to animate without sketch
 const animate = () => {
   console.log('Domestica animation');
   requestAnimationFrame(animate);  
 }
 // animate();
 
+// main function for setting up envirement
 const sketch = ({context, width, height}) => {
   const agents = [];
   // loop for generating agents
-  for (let i = 0; i  < 40; i++) {
+  for (let i = 0; i  < 30; i++) {
     const x = random.range(0,width);
     const y = random.range(0,height);
     agents.push(new agent(x,y));
@@ -34,9 +36,21 @@ const sketch = ({context, width, height}) => {
     for (let i = 0; i < agents.length; i++){
       const agent = agents[i];
 
-      for (let j = 0; j < agents.length; j++){
+      for (let j = i+1; j < agents.length; j++){
         const other = agents[j];
-        
+        const dist = agent.getDistance(other.pos);
+
+        if (dist > 300) continue;
+
+        const scaledDist = math.mapRange(dist,1,300,10,0);
+
+        // context.lineWidth = math.mapRange(dist,100,1000);
+        context.lineWidth = scaledDist; 
+
+        context.beginPath();
+        context.moveTo(agent.pos.x, agent.pos.y);
+        context.lineTo(other.pos.x, other.pos.y);
+        context.stroke();
       }
     }
 
