@@ -32,10 +32,15 @@ function clearCanvas(context, width, height) {
   context.fillRect(0, 0, width, height);
 }
 
-const getColor = (t_red, t_blue, t_green) => {
-  let red, blue, green;
-  red = t_red, green = t_green, blue = t_blue;
-  return `rgb(${red*155}, ${green*155}, ${blue*55})`;
+const getColor = (frame) => {
+  let red, blue = 0, green = 0;
+
+  // red = random.noise1D(frame);
+  // green = random.noise1D(frame, 0.0005, 255);
+  // blue = random.noise1D(frame, 0.0005, 255);
+
+  return `rgb(${40}, ${140}, ${230})`;
+  // return `rgb(${red}, ${green}, ${blue})`;
 }
 
 // Draws the grid of lines with noise-based rotation and scaling
@@ -49,8 +54,9 @@ function drawGrid(context, width, height, frame) {
 
   for (let i = 0; i < params.COLS * params.ROWS; i++) {
     const { x, y } = getCellPosition(i, cellWidth, cellHeight, marginX, marginY);
-    const noise = random.noise2D(x + frame * 1, y + frame * 1, params.NOISE_FREQ, params.NOISE_AMP);
-    drawLine(context, x, y, noise);
+    // const noise = random.noise1D(y + frame * 10, params.NOISE_FREQ, params.NOISE_AMP);
+   const noise = random.noise3D(x, y, frame*10, params.NOISE_FREQ, params.NOISE_AMP);
+    drawLine(context, x, y, noise, frame);
   }
 }
 
@@ -64,7 +70,7 @@ function getCellPosition(index, cellWidth, cellHeight, marginX, marginY) {
 }
 
 // Draws a line with rotation and scaling based on noise
-function drawLine(context, x, y, noise) {
+function drawLine(context, x, y, noise, frame) {
   const angle = noise * params.NOISE_MULTIPLIER;
   const scale = math.mapRange(noise, -1, 1, params.SCALE_MIN, params.SCALE_MAX);
 
@@ -75,7 +81,7 @@ function drawLine(context, x, y, noise) {
   context.beginPath();
   context.moveTo(-params.LINE_LENGTH / 2, 0);
   context.lineTo(params.LINE_LENGTH / 2, 0);
-  context.strokeStyle = getColor(noise*2,noise*0,noise*0);
+  context.strokeStyle = getColor(frame);
   console.log(getColor());
   context.stroke();
   context.restore();
